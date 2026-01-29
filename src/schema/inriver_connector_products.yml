@@ -1,0 +1,64 @@
+name: inriver_connector_products
+display_name: inriver_connector Products
+fields:
+  - name: product_id
+    type: string
+    display_name: Product ID
+    description: inriver product entity ID
+    primary: true
+    
+  - name: entity_type
+    type: string
+    display_name: Entity Type
+    description: Type of entity (Product, Item, etc)
+    
+  - name: sku
+    type: string
+    display_name: SKU
+    description: Product SKU or item number
+    
+  - name: product_name
+    type: string
+    display_name: Product Name
+    description: Product display name
+    
+  - name: description
+    type: string
+    display_name: Description
+    description: Product description
+    
+  - name: price
+    type: number
+    display_name: Price
+    description: Product price
+    
+  - name: brand
+    type: string
+    display_name: Brand
+    description: Product brand
+    
+  - name: category
+    type: string
+    display_name: Category
+    description: Product category
+    
+  - name: image_url
+    type: string
+    display_name: Image URL
+    description: Primary product image URL
+    
+  - name: channel_id
+    type: string
+    display_name: Channel ID
+    description: Associated inriver channel
+    
+  - name: completeness
+    type: number
+    display_name: Completeness Score
+    description: Data completeness percentage from inriver
+    
+  - name: last_modified
+    type: timestamp
+    display_name: Last Modified
+    description: Last modification timestamp from inriver
+

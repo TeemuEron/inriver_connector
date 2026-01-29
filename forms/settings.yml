@@ -1,0 +1,39 @@
+sections:
+  - key: authentication
+    label: inriver API Configuration
+    elements:
+      - key: api_key
+        label: API Key
+        type: text
+        required: true
+        help: Your inriver REST API key from inriver PIM
+
+      - key: api_url
+        label: API Base URL
+        type: text
+        required: true
+        help: The base URL for your inriver environment
+
+      - key: channel_id
+        label: Channel ID
+        type: text
+        required: true
+        help: The inriver channel ID to sync products from
+
+  - key: sync_options
+    label: Sync Configuration
+    elements:
+      - key: entity_types
+        label: Entity Types to Sync
+        type: multi_select
+        required: true
+        options:
+          - text: Products
+            value: Product
+          - text: Items/SKUs
+            value: Item
+          - text: Channels
+            value: Channel
+          - text: Resources (Media)
+            value: Resource
+        help: Select which entity types to import from inriver
