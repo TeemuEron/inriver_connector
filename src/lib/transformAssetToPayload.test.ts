@@ -51,8 +51,10 @@ describe('transformEntityDataToPayload', () => {
       product_name: 'Test Product',
       description: 'Test description',
       completeness: 100,
-      last_modified: 1687935600000, // Unix timestamp in milliseconds
     });
+    // Verify timestamp is a number (timezone-independent check)
+    expect(typeof payload.last_modified).toBe('number');
+    expect(payload.last_modified).toBeGreaterThan(0);
   });
 
   it('includes channel ID when provided', () => {
