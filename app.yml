@@ -1,7 +1,7 @@
 meta:
   app_id: inriver_connector
   display_name: inriver_connector
-  version: 1.0.0-dev.1
+  version: 1.0.0-dev.2
   vendor: kraftvaerk
   summary: synchs channel catalogues from inriver
   support_url: https://kraftvaerk.com
