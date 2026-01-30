@@ -1,5 +1,6 @@
 name: inriver_connector_products
 display_name: inriver_connector Products
+alias: inriver_connector_product
 fields:
   - name: product_id
     type: string

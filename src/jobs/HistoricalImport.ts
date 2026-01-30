@@ -125,24 +125,13 @@ export class HistoricalImport extends Job {
         logger.info('Sample payload:', JSON.stringify(payloads[0], null, 2));
 
         // Send batch to OCP
-        // For local testing, map to standard products object
-        const isLocalTesting = process.env.NODE_ENV !== 'production';
-        logger.info(`NODE_ENV: ${process.env.NODE_ENV}, isLocalTesting: ${isLocalTesting}`);
-
-        if (isLocalTesting) {
-          // Local testing: just log the data, don't write to OCP
-          logger.info(`[LOCAL TEST MODE] Would send ${payloads.length} records to OCP`);
-          logger.info('[LOCAL TEST MODE] Sample records:', JSON.stringify(payloads.slice(0, 2), null, 2));
-        } else {
-          // Production: use custom object
-          try {
-            await odp.object('inriver_connector_products', payloads);
-            logger.info(`Successfully sent ${payloads.length} records to OCP`);
-          } catch (error: any) {
-            logger.error('OCP write error:', error.message);
-            logger.error('Error details:', JSON.stringify(error, null, 2));
-            throw error;
-          }
+        try {
+          await odp.object('inriver_connector_products', payloads);
+          logger.info(`Successfully sent ${payloads.length} records to OCP`);
+        } catch (error: any) {
+          logger.error('OCP write error:', error.message);
+          logger.error('Error details:', JSON.stringify(error, null, 2));
+          throw error;
         }
 
         // Update state for next iteration
